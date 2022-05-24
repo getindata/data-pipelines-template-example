@@ -25,7 +25,7 @@ clean-targets: # directories to be removed by `dbt clean`
   - "dbt_packages"
 
 models:
-  dp_presentation:
+  [[ project_name ]]:
     staging:
       +materialized: view
       +schema : staging
