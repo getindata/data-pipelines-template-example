@@ -97,9 +97,6 @@
         }
       ]
     },
-    "schedule": {
-      "units": 24,
-      "timeUnit": "hours"
-    },
+    "schedule": null,
     "status": "active"
   }
