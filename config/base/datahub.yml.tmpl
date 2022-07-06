@@ -6,21 +6,8 @@ source:
     manifest_path: "./target/manifest.json"
     catalog_path: "./target/catalog.json"
     sources_path: "./target/sources.json"
-    test_results_path: "./target/run_results.json"
-
     target_platform: "bigquery"
-    disable_dbt_node_creation: True
-    load_schemas: True
     env: "DEV"
-
-    # node_type_pattern is checking `nodes/{{node_name}}/resource_type`
-    # field in dbt's `manifest.json`;
-    # known types: [model, test, source, macro]
-    node_type_pattern:
-      deny:
-        - ^test.*
-      allow:
-        - ^.*
 
 transformers:
   - type: "simple_add_dataset_tags"
