@@ -6,7 +6,10 @@ source:
     manifest_path: "./target/manifest.json"
     catalog_path: "./target/catalog.json"
     sources_path: "./target/sources.json"
+
     target_platform: "bigquery"
+    disable_dbt_node_creation: True
+    load_schemas: True
     env: "DEV"
 
 transformers:
