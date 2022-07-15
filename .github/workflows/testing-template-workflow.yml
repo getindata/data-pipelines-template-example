@@ -1,0 +1,47 @@
+name: testing-defaults-template-job
+on: [push]
+jobs:
+  check-defaults:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup
+        run: |
+          pip install --upgrade pip
+          pip install copier
+      - name: Check Defaults
+        run: copier "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git" ./template-test-path --defaults
+  list-scenarios:
+    outputs:
+      scenario-list: ${{ steps.liststep.outputs.listoutput }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: List
+        id: liststep
+        run: |
+          SCENARIOS="$(ls tests/scenarios | python -c 'import json; import sys; print(json.dumps(sys.stdin.read().strip().split()))')"
+          echo "::set-output name=listoutput::$SCENARIOS"
+
+  check-scenarios:
+    strategy:
+      matrix:
+        scenario: ${{ fromJSON(needs.list-scenarios.outputs.scenario-list) }}
+    needs:
+      - check-defaults
+      - list-scenarios
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup
+        run: |
+          pip install --upgrade pip
+          pip install copier
+      - name: Check scenario ${{ matrix.scenario }}
+        run: |
+          ANSWERS="$(cat tests/scenarios/${{ matrix.scenario }} | python tests/parser.py)"
+          readarray -t ANSWERS_ARRAY < <(echo "$ANSWERS")
+          copier "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git" ./template-test-path "${ANSWERS_ARRAY[@]}"

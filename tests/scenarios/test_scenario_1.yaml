@@ -1,0 +1,5 @@
+project_name: some_project_name
+project_description: Some description
+gcp_project_id: 123456789
+pipeline_owner: Some Pipeline Owner
+schedule_interval: 0 7 * * 1-3

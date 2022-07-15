@@ -1,0 +1,5 @@
+project_name: some_project_name_2
+project_description: Other description
+gcp_project_id: 987654321
+pipeline_owner: Another Pipeline Owner
+schedule_interval: 15 3 * * 4-5
