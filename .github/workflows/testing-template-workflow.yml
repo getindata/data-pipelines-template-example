@@ -22,7 +22,7 @@ jobs:
       - name: List
         id: liststep
         run: |
-          SCENARIOS="$(ls tests/scenarios | python -c 'import json; import sys; print(json.dumps(sys.stdin.read().strip().split()))')"
+          SCENARIOS="$(ls .github/scenarios | python -c 'import json; import sys; print(json.dumps(sys.stdin.read().strip().split()))')"
           echo "::set-output name=listoutput::$SCENARIOS"
 
   check-scenarios:
@@ -42,6 +42,6 @@ jobs:
           pip install copier
       - name: Check scenario ${{ matrix.scenario }}
         run: |
-          ANSWERS="$(cat tests/scenarios/${{ matrix.scenario }} | python tests/parser.py)"
+          ANSWERS="$(cat .github/scenarios/${{ matrix.scenario }} | python .github/parser.py)"
           readarray -t ANSWERS_ARRAY < <(echo "$ANSWERS")
           copier "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git" ./template-test-path "${ANSWERS_ARRAY[@]}"
