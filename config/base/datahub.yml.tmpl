@@ -12,15 +12,6 @@ source:
     load_schemas: True
     env: "DEV"
 
-    # node_type_pattern is checking `nodes/{{node_name}}/resource_type`
-    # field in dbt's `manifest.json`;
-    # known types: [model, test, source, macro]
-    node_type_pattern:
-      deny:
-        - ^test.*
-      allow:
-        - ^.*
-
 transformers:
   - type: "simple_add_dataset_tags"
     config:
