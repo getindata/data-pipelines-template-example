@@ -13,5 +13,5 @@ pip3 install copier
 ## Usage
 
 ```shell
-copier https://gitlab.com/getindata/dataops/pipeline-project-template.git <path to project directory>
+copier https://github.com/getindata/data-pipelines-template-example.git <path to project directory>
 ```

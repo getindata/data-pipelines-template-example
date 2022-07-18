@@ -24,6 +24,7 @@ schedule_interval:
 
 _exclude:
   - .git
+  - .github
 
 _min_copier_version: "5.1.0"
 
