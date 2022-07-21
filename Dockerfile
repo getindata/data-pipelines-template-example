@@ -6,7 +6,7 @@ ADD macros /dbt/macros/
 ADD models /dbt/models/
 ADD docs /dbt/docs/
 ADD tests /dbt/tests/
-ADD target /dbt/target/ 
+COPY target/catalog.json /dbt/target/
 
 ADD dbt_project.yml /dbt/dbt_project.yml
 ADD packages.yml /dbt/packages.yml
