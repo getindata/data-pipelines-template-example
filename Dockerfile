@@ -13,5 +13,4 @@ ADD packages.yml /dbt/packages.yml
 
 ADD build/profiles/env_execution/profiles.yml /root/.dbt/profiles.yml
 ADD config/base/datahub_assertions.yml /dbt/
-ENV GCP_KEY_PATH=""
-RUN dbt deps
+RUN GCP_KEY_PATH="" dbt deps
