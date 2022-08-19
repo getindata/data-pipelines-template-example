@@ -9,9 +9,8 @@ source:
     target_platform: "bigquery"
     env: "DEV"
 
-    node_type_pattern:
-      allow:
-        - ^test.*
+    entities_enabled:
+      test_results: 'ONLY'
 
 sink:
   type: "datahub-rest"
