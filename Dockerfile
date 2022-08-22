@@ -1,4 +1,4 @@
-FROM gcr.io/getindata-images-public/dbt-dataops:gcp-0.1.0
+FROM gcr.io/getindata-images-public/dbt-dataops:gcp-0.5.0
 
 ADD analyses /dbt/analyses/
 ADD seeds /dbt/seeds/
