@@ -25,6 +25,7 @@ jobs:
           SCENARIOS="$(ls .github/scenarios | python -c 'import json; import sys; print(json.dumps(sys.stdin.read().strip().split()))')"
           echo "::set-output name=listoutput::$SCENARIOS"
 
+# todo fix it
 #  check-scenarios:
 #    strategy:
 #      matrix:
