@@ -4,3 +4,7 @@ gcp_dev_project_id: 123456789
 gcp_prod_project_id: 987654321
 pipeline_owner: Another Pipeline Owner
 schedule_interval: 15 3 * * 4-5
+use_ingestion: True
+ingestion_framework: airbyte
+destination_id: 321
+source_id: 123
