@@ -26,11 +26,32 @@ schedule_interval:
   help: Cron expression
   default: 0 12 * * *
 
+use_ingestion:
+    type: bool
+    help: Would you like to use ingestion framework?
+    default: false
+
+ingestion_framework:
+    type: str
+    when: "{% if use_ingestion %}true{% endif %}"
+    help: What ingestion framework would you like to use?
+    choices:
+        Airbyte: airbyte
+    default: airbyte
+
+destination_id:
+    type: str
+    when: "{% if ingestion_framework == 'airbyte' %}true{% endif %}"
+    help: Destination Id 
+
+source_id:
+    type: str
+    when: "{% if ingestion_framework == 'airbyte' %}true{% endif %}"
+    help: Source Id
+
 _exclude:
   - .git
   - .github
-
-_min_copier_version: "5.1.0"
 
 _skip_if_exists:
   - models
