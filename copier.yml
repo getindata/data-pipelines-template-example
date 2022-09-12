@@ -41,12 +41,12 @@ ingestion_framework:
 
 destination_id:
     type: str
-    when: "{% if ingestion_framework == 'airbyte' %}true{% endif %}"
+    when: "{% if use_ingestion and ingestion_framework == 'airbyte' %}true{% endif %}"
     help: Destination Id 
 
 source_id:
     type: str
-    when: "{% if ingestion_framework == 'airbyte' %}true{% endif %}"
+    when: "{% if use_ingestion and ingestion_framework == 'airbyte' %}true{% endif %}"
     help: Source Id
 
 _exclude:
