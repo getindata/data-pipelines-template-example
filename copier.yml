@@ -49,6 +49,11 @@ source_id:
     when: "{% if use_ingestion and ingestion_framework == 'airbyte' %}true{% endif %}"
     help: Source Id
 
+workspace_id:
+    type: str
+    when: "{% if use_ingestion and ingestion_framework == 'airbyte' %}true{% endif %}"
+    help: Workspace id
+
 _exclude:
   - .git
   - .github
