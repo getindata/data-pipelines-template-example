@@ -8,3 +8,4 @@ use_ingestion: True
 ingestion_framework: airbyte
 destination_id: 321
 source_id: 123
+workspace_id: 333
