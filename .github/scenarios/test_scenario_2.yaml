@@ -6,6 +6,9 @@ pipeline_owner: Another Pipeline Owner
 schedule_interval: 15 3 * * 4-5
 use_ingestion: True
 ingestion_framework: airbyte
-destination_id: 321
-source_id: 123
-workspace_id: 333
+destination_id_dev: 321
+source_id_dev: 123
+workspace_id_dev: 333
+destination_id_prod: 321
+source_id_prod: 123
+workspace_id_prod: 333

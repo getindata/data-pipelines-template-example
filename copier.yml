@@ -39,20 +39,35 @@ ingestion_framework:
         Airbyte: airbyte
     default: airbyte
 
-destination_id:
+destination_id_dev:
     type: str
     when: "{% if use_ingestion and ingestion_framework == 'airbyte' %}true{% endif %}"
-    help: Destination Id 
+    help: Destination Id for dev instance
 
-source_id:
+source_id_dev:
     type: str
     when: "{% if use_ingestion and ingestion_framework == 'airbyte' %}true{% endif %}"
-    help: Source Id
+    help: Source Id for dev instance
 
-workspace_id:
+workspace_id_dev:
     type: str
     when: "{% if use_ingestion and ingestion_framework == 'airbyte' %}true{% endif %}"
-    help: Workspace id
+    help: Workspace id for dev instance
+
+destination_id_prod:
+    type: str
+    when: "{% if use_ingestion and ingestion_framework == 'airbyte' %}true{% endif %}"
+    help: Destination Id for prod instance
+
+source_id_prod:
+    type: str
+    when: "{% if use_ingestion and ingestion_framework == 'airbyte' %}true{% endif %}"
+    help: Source Id for prod instance
+
+workspace_id_prod:
+    type: str
+    when: "{% if use_ingestion and ingestion_framework == 'airbyte' %}true{% endif %}"
+    help: Workspace id for prod instance
 
 _exclude:
   - .git
