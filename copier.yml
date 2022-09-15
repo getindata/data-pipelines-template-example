@@ -26,6 +26,11 @@ schedule_interval:
   help: Cron expression
   default: 0 12 * * *
 
+dataset:
+  type: str
+  help: Name of the dataset
+  default: presentation
+
 use_ingestion:
     type: bool
     help: Would you like to use ingestion framework?
