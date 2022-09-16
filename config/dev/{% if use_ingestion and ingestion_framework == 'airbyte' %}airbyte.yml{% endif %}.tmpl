@@ -2,12 +2,12 @@ airbyte_connection_id: airbyte_connection_id
 airbyte_url: https://airbyte.dataops-dev.getindata.dev
 connections:
   POSTGRES_BQ_CONNECTION:
-    destinationId: [[ destination_id ]]
+    destinationId: [[ destination_id_dev ]]
     name: POSTGRES_BQ_CONNECTION
     namespaceDefinition: customformat
     namespaceFormat: [[ dataset ]]
     operationIds: []
-    sourceId: [[ source_id ]]
+    sourceId: [[ source_id_dev ]]
     status: active
     operations:
     - name: Normalization
@@ -15,7 +15,7 @@ connections:
         normalization:
           option: basic
         operatorType: normalization
-      workspaceId: [[ workspace_id ]]
+      workspaceId: [[ workspace_id_dev ]]
     syncCatalog:
       streams:
       - config:
