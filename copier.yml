@@ -26,11 +26,57 @@ schedule_interval:
   help: Cron expression
   default: 0 12 * * *
 
+dataset:
+  type: str
+  help: Name of the dataset
+  default: presentation
+
+use_ingestion:
+    type: bool
+    help: Would you like to use ingestion framework?
+    default: false
+
+ingestion_framework:
+    type: str
+    when: "{% if use_ingestion %}true{% endif %}"
+    help: What ingestion framework would you like to use?
+    choices:
+        Airbyte: airbyte
+    default: airbyte
+
+destination_id_dev:
+    type: str
+    when: "{% if use_ingestion and ingestion_framework == 'airbyte' %}true{% endif %}"
+    help: Destination Id for dev instance
+
+source_id_dev:
+    type: str
+    when: "{% if use_ingestion and ingestion_framework == 'airbyte' %}true{% endif %}"
+    help: Source Id for dev instance
+
+workspace_id_dev:
+    type: str
+    when: "{% if use_ingestion and ingestion_framework == 'airbyte' %}true{% endif %}"
+    help: Workspace id for dev instance
+
+destination_id_prod:
+    type: str
+    when: "{% if use_ingestion and ingestion_framework == 'airbyte' %}true{% endif %}"
+    help: Destination Id for prod instance
+
+source_id_prod:
+    type: str
+    when: "{% if use_ingestion and ingestion_framework == 'airbyte' %}true{% endif %}"
+    help: Source Id for prod instance
+
+workspace_id_prod:
+    type: str
+    when: "{% if use_ingestion and ingestion_framework == 'airbyte' %}true{% endif %}"
+    help: Workspace id for prod instance
+
 _exclude:
   - .git
   - .github
-
-_min_copier_version: "5.1.0"
 
 _skip_if_exists:
   - models
@@ -40,5 +86,7 @@ _skip_if_exists:
 #  - "git add -A"
 #  - "git commit -m 'Initial project or upgrade'"
 #  - "git push"
+
+_min_copier_version: "6.1.0"
 
 _templates_suffix: .tmpl
