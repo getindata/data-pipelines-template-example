@@ -38,7 +38,6 @@ use_ingestion:
 
 ingestion_framework:
     type: str
-    when: "{% if use_ingestion %}true{% endif %}"
     help: What ingestion framework would you like to use?
     choices:
         Airbyte: airbyte
@@ -46,33 +45,29 @@ ingestion_framework:
 
 destination_id_dev:
     type: str
-    when: "{% if use_ingestion and ingestion_framework == 'airbyte' %}true{% endif %}"
     help: Destination Id for dev instance
 
 source_id_dev:
     type: str
-    when: "{% if use_ingestion and ingestion_framework == 'airbyte' %}true{% endif %}"
     help: Source Id for dev instance
 
 workspace_id_dev:
     type: str
-    when: "{% if use_ingestion and ingestion_framework == 'airbyte' %}true{% endif %}"
     help: Workspace id for dev instance
+    default: a7e79db0-7f4f-4663-94db-ba392860fa90
 
 destination_id_prod:
     type: str
-    when: "{% if use_ingestion and ingestion_framework == 'airbyte' %}true{% endif %}"
     help: Destination Id for prod instance
 
 source_id_prod:
     type: str
-    when: "{% if use_ingestion and ingestion_framework == 'airbyte' %}true{% endif %}"
     help: Source Id for prod instance
 
 workspace_id_prod:
     type: str
-    when: "{% if use_ingestion and ingestion_framework == 'airbyte' %}true{% endif %}"
     help: Workspace id for prod instance
+    default: a7e79db0-7f4f-4663-94db-ba392860fa90
 
 _exclude:
   - .git
@@ -87,6 +82,6 @@ _skip_if_exists:
 #  - "git commit -m 'Initial project or upgrade'"
 #  - "git push"
 
-_min_copier_version: "6.1.0"
+_min_copier_version: "5.1.0"
 
 _templates_suffix: .tmpl
