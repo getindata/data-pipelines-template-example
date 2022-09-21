@@ -36,38 +36,25 @@ use_ingestion:
     help: Would you like to use ingestion framework?
     default: false
 
-ingestion_framework:
-    type: str
-    help: What ingestion framework would you like to use?
-    choices:
-        Airbyte: airbyte
-    default: airbyte
-
 destination_id_dev:
     type: str
     help: Destination Id for dev instance
+    default: ''
 
 source_id_dev:
     type: str
     help: Source Id for dev instance
-
-workspace_id_dev:
-    type: str
-    help: Workspace id for dev instance
-    default: a7e79db0-7f4f-4663-94db-ba392860fa90
+    default: ''
 
 destination_id_prod:
     type: str
     help: Destination Id for prod instance
+    default: ''
 
 source_id_prod:
     type: str
     help: Source Id for prod instance
-
-workspace_id_prod:
-    type: str
-    help: Workspace id for prod instance
-    default: a7e79db0-7f4f-4663-94db-ba392860fa90
+    default: ''
 
 _exclude:
   - .git
