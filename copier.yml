@@ -56,6 +56,11 @@ source_id_prod:
     help: Source Id for prod instance
     default: ''
 
+use_bi:
+    type: bool
+    help: Would you like to use Business Intelligence (e.g. Looker)?
+    default: false
+
 _exclude:
   - .git
   - .github
