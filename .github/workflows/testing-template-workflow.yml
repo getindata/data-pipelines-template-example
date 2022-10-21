@@ -11,7 +11,7 @@ jobs:
           pip install --upgrade pip
           pip install copier==5.1.0
       - name: Check Defaults
-        run: copier "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git" ./template-test-path --defaults
+        run: copier "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git" ./template-test-path #--defaults
   list-scenarios:
     outputs:
       scenario-list: ${{ steps.liststep.outputs.listoutput }}
