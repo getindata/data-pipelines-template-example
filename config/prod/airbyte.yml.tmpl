@@ -94,9 +94,9 @@ destinations: {}
 sources: {}
 tasks:
 - api_version: v1
-  asyncrounous: true
+  asyncrounous: false
   connection_id: ${POSTGRES_BQ_CONNECTION}
   task_id: postgres_bq_connection_task
-  timeout: 110.0
+  timeout: 600
   wait_seconds: 3
   
