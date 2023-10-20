@@ -31,6 +31,11 @@ dataset:
   help: Name of the dataset
   default: presentation
 
+enable_data_governance:
+  type: bool
+  help: Would you like to use DataHub for colecting metadata?
+  default: false
+
 use_databricks:
     type: bool
     help: Would you like to use Databricks integration?
