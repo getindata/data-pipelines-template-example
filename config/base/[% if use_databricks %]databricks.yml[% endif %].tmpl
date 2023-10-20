@@ -1,0 +1,13 @@
+enable: true
+workflows:
+    job_name: [[ project_name ]]
+    cron_schedule: '[[ schedule_interval ]]'
+    git:
+        provider: gitLab
+        branch: main
+        
+cluster: [[ databricks_cluster_name ]]
+profiles_file_path: '/opt/config'
+libraries:
+    - dbt-databricks>=1.0.0,<2.0.0
+    - dbt-bigquery==1.3.0

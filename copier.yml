@@ -31,6 +31,16 @@ dataset:
   help: Name of the dataset
   default: presentation
 
+use_databricks:
+    type: bool
+    help: Would you like to use Databricks integration?
+    default: false
+
+databricks_cluster_name:
+    when: "[[ use_databricks ]]"
+    type: str
+    help: Name of the databricks cluster used to execute tasks in the job.
+
 use_ingestion:
     type: bool
     help: Would you like to use ingestion framework?
