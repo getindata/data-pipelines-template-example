@@ -94,7 +94,7 @@ _skip_if_exists:
 #  - "git commit -m 'Initial project or upgrade'"
 #  - "git push"
 
-_min_copier_version: "7.0.0"
+_min_copier_version: "8.3.0"
 
 _templates_suffix: .tmpl
 
