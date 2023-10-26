@@ -9,6 +9,7 @@ jobs:
       - name: Setup
         run: |
           pip install --upgrade pip
+          pip install pydantic==2.4.0
           pip install copier==7.2.0
       - name: Check Defaults
         run: copier run_copy "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git" ./template-test-path --defaults
