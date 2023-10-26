@@ -31,55 +31,35 @@ dataset:
   help: Name of the dataset
   default: presentation
 
-enable_data_governance:
+use_ingestion:
   type: bool
-  help: Would you like to use DataHub for colecting metadata?
+  help: Would you like to use ingestion framework?
   default: false
 
-use_databricks:
-    type: bool
-    help: Would you like to use Databricks integration?
-    default: false
-
-databricks_cluster_name:
-    when: "[[ use_databricks ]]"
-    type: str
-    help: Name of the databricks cluster used to execute dbt tasks.
-
-databricks_workspace_url:
-  when: "[[ use_databricks ]]"
-  type: str
-  help: Workspace url where jobs will be deployed.
-
-use_ingestion:
-    type: bool
-    help: Would you like to use ingestion framework?
-    default: false
-
 destination_id_dev:
-    when: "[[ use_ingestion ]]"
-    type: str
-    help: Destination Id for dev instance
+  when: "[[ use_ingestion ]]"
+  type: str
+  help: Destination Id for dev instance
 
 source_id_dev:
-    when: "[[ use_ingestion ]]"
-    type: str
-    help: Source Id for dev instance
+  type: str
+  help: Source Id for dev instance
+  when: "[[ use_ingestion ]]"
 
 destination_id_prod:
-    when: "[[ use_ingestion ]]"
-    type: str
-    help: Destination Id for prod instance
+  when: "[[ use_ingestion ]]"
+  type: str
+  help: Destination Id for prod instance
 
 source_id_prod:
-    when: "[[ use_ingestion ]]"
-    type: str
-    help: Source Id for prod instance
+  when: "[[ use_ingestion ]]"
+  type: str
+  help: Source Id for prod instance
 
 use_bi:
-    type: bool
-    help: Would you like to use Business Intelligence (e.g. Looker)?
-    default: false
+  type: bool
+  help: Would you like to use Business Intelligence (e.g. Looker)?
+  default: false
 
 _exclude:
   - .git
