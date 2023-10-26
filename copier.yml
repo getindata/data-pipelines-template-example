@@ -8,13 +8,13 @@ project_description:
   help: Short project description
   default: Project for transforming data
 
-gcp_dev_project_id:
-  type: str
-  help: Project id used in GCP as development environment
-
-gcp_prod_project_id:
-  type: str
-  help: Project id used in GCP as production environment
+#gcp_dev_project_id:
+#  type: str
+#  help: Project id used in GCP as development environment
+#
+#gcp_prod_project_id:
+#  type: str
+#  help: Project id used in GCP as production environment
 
 pipeline_owner:
   type: str
