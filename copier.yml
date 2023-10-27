@@ -35,7 +35,7 @@ dataset:
   default: presentation
 
 _templates_suffix: .tmpl
-_min_copier_version: "8.0.0"
+_min_copier_version: "7.0.0"
 
 _envops:
   autoescape: false
