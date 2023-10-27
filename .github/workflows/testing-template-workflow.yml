@@ -11,7 +11,7 @@ jobs:
           pip install --upgrade pip
           pip install copier==7.0.1 pydantic==1.10.13
       - name: Check Defaults
-        run: copier copy "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git" ./template-test-path --defaults
+        run: copier --defaults copy "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git" ./template-test-path
   list-scenarios:
     outputs:
       scenario-list: ${{ steps.liststep.outputs.listoutput }}
