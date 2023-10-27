@@ -1,0 +1,4 @@
+is_bi_enabled: False
+bi_target: looker
+is_bi_compile: True
+is_bi_deploy: True

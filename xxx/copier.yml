@@ -8,20 +8,13 @@ project_description:
   help: Short project description
   default: Project for transforming data
 
-dupa_description:
-  type: str
-  help: Short project description
-  default: XXXXXXXXX
-
 gcp_dev_project_id:
   type: str
   help: Project id used in GCP as development environment
-  default: 123456789
 
 gcp_prod_project_id:
   type: str
   help: Project id used in GCP as production environment
-  default: 123456789
 
 pipeline_owner:
   type: str
@@ -38,35 +31,55 @@ dataset:
   help: Name of the dataset
   default: presentation
 
-use_ingestion:
+enable_data_governance:
   type: bool
-  help: Would you like to use ingestion framework?
+  help: Would you like to use DataHub for colecting metadata?
   default: false
+
+use_databricks:
+    type: bool
+    help: Would you like to use Databricks integration?
+    default: false
+
+databricks_cluster_name:
+    when: "[[ use_databricks ]]"
+    type: str
+    help: Name of the databricks cluster used to execute dbt tasks.
+
+databricks_workspace_url:
+  when: "[[ use_databricks ]]"
+  type: str
+  help: Workspace url where jobs will be deployed.
+
+use_ingestion:
+    type: bool
+    help: Would you like to use ingestion framework?
+    default: false
 
 destination_id_dev:
-  when: "[[ use_ingestion ]]"
-  type: str
-  help: Destination Id for dev instance
+    when: "[[ use_ingestion ]]"
+    type: str
+    help: Destination Id for dev instance
 
 source_id_dev:
-  type: str
-  help: Source Id for dev instance
-  when: "[[ use_ingestion ]]"
+    when: "[[ use_ingestion ]]"
+    type: str
+    help: Source Id for dev instance
 
 destination_id_prod:
-  when: "[[ use_ingestion ]]"
-  type: str
-  help: Destination Id for prod instance
+    when: "[[ use_ingestion ]]"
+    type: str
+    help: Destination Id for prod instance
 
 source_id_prod:
-  when: "[[ use_ingestion ]]"
-  type: str
-  help: Source Id for prod instance
+    when: "[[ use_ingestion ]]"
+    type: str
+    help: Source Id for prod instance
 
 use_bi:
-  type: bool
-  help: Would you like to use Business Intelligence (e.g. Looker)?
-  default: false
+    type: bool
+    help: Would you like to use Business Intelligence (e.g. Looker)?
+    default: false
 
 _exclude:
   - .git
@@ -81,7 +94,7 @@ _skip_if_exists:
 #  - "git commit -m 'Initial project or upgrade'"
 #  - "git push"
 
-_min_copier_version: "8.3.0"
+_min_copier_version: "7.0.0"
 
 _templates_suffix: .tmpl
 

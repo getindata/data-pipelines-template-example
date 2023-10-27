@@ -1,0 +1,14 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: v1.3.29
+_src_path: /Users/maciejpietrzykowski/Desktop/data-pipelines-template-example
+dataset: presentation
+enable_data_governance: false
+gcp_dev_project_id: dsda
+gcp_prod_project_id: ddd
+pipeline_owner: DataOps Teams
+project_description: Project for transforming data
+project_name: my_new_project
+schedule_interval: 0 12 * * *a
+use_bi: false
+use_databricks: false
+use_ingestion: false
