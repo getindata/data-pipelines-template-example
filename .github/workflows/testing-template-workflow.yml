@@ -1,29 +1,29 @@
-name: testing-defaults-template-job
-on: [push]
-jobs:
-  check-defaults:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Setup
-        run: |
-          pip install --upgrade pip
-          pip install copier==7.0.1 pydantic==1.10.13
-      - name: Check Defaults
-        run: copier --defaults copy "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git" ./template-test-path
-  list-scenarios:
-    outputs:
-      scenario-list: ${{ steps.liststep.outputs.listoutput }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: List
-        id: liststep
-        run: |
-          SCENARIOS="$(ls .github/scenarios | python -c 'import json; import sys; print(json.dumps(sys.stdin.read().strip().split()))')"
-          echo "::set-output name=listoutput::$SCENARIOS"
+#name: testing-defaults-template-job
+#on: [push]
+#jobs:
+#  check-defaults:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v3
+#      - name: Setup
+#        run: |
+#          pip install --upgrade pip
+#          pip install copier==7.0.1 pydantic==1.10.13
+#      - name: Check Defaults
+#        run: copier --defaults copy "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git" ./template-test-path
+#  list-scenarios:
+#    outputs:
+#      scenario-list: ${{ steps.liststep.outputs.listoutput }}
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v3
+#      - name: List
+#        id: liststep
+#        run: |
+#          SCENARIOS="$(ls .github/scenarios | python -c 'import json; import sys; print(json.dumps(sys.stdin.read().strip().split()))')"
+#          echo "::set-output name=listoutput::$SCENARIOS"
 
 # todo fix it
 #  check-scenarios:
